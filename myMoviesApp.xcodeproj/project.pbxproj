@@ -17,6 +17,7 @@
 		9FC34BB228BF665E008DE9FC /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC34BB128BF665E008DE9FC /* MovieData.swift */; };
 		9FC34BB628BF66E1008DE9FC /* IMDBApiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC34BB528BF66E1008DE9FC /* IMDBApiResult.swift */; };
 		9FC34BB928BF6CD9008DE9FC /* ApiCaller+ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC34BB828BF6CD9008DE9FC /* ApiCaller+ApiKey.swift */; };
+		9FC34BBC28BF8180008DE9FC /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC34BBB28BF8180008DE9FC /* MovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9FC34BB128BF665E008DE9FC /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		9FC34BB528BF66E1008DE9FC /* IMDBApiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMDBApiResult.swift; sourceTree = "<group>"; };
 		9FC34BB828BF6CD9008DE9FC /* ApiCaller+ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiCaller+ApiKey.swift"; sourceTree = "<group>"; };
+		9FC34BBB28BF8180008DE9FC /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				9FC34B9528BF5467008DE9FC /* AppDelegate.swift */,
 				9FC34B9728BF5467008DE9FC /* SceneDelegate.swift */,
 				9FC34B9928BF5467008DE9FC /* TableViewController.swift */,
+				9FC34BBB28BF8180008DE9FC /* MovieDetailViewController.swift */,
 				9FC34B9B28BF5467008DE9FC /* Main.storyboard */,
 				9FC34B9E28BF546A008DE9FC /* Assets.xcassets */,
 				9FC34BA028BF546A008DE9FC /* LaunchScreen.storyboard */,
@@ -162,6 +165,7 @@
 				9FC34B9A28BF5467008DE9FC /* TableViewController.swift in Sources */,
 				9FC34BB628BF66E1008DE9FC /* IMDBApiResult.swift in Sources */,
 				9FC34B9628BF5467008DE9FC /* AppDelegate.swift in Sources */,
+				9FC34BBC28BF8180008DE9FC /* MovieDetailViewController.swift in Sources */,
 				9FC34B9828BF5467008DE9FC /* SceneDelegate.swift in Sources */,
 				9FC34BB928BF6CD9008DE9FC /* ApiCaller+ApiKey.swift in Sources */,
 				9FC34BAA28BF63DD008DE9FC /* ApiCaller.swift in Sources */,
