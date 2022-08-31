@@ -20,6 +20,8 @@ class TableViewController: UITableViewController {
             movies.append("Predator")
         }
         
+        title = "Movies"
+        
         tableView.reloadData()
     }
 
