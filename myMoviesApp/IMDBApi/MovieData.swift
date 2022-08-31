@@ -12,4 +12,5 @@ struct MovieData: Codable  {
     let title: String
     let year: String
     let imDbRating: String
+    let image: String
 }
