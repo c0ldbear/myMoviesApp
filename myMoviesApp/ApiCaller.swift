@@ -9,9 +9,21 @@ import Foundation
 
 class ApiCaller {
     
-    var imdbApiUrl: URL = URL(string: "https://imdb-api.com/en/API/MostPopularMovies/"+apiKey)!
+    enum ApiCallerError: Error {
+        case invalidURL
+        case missingData
+    }
     
-    func fetch() async {
+    var imdbApiUrl: URL? = URL(string: "https://imdb-api.com/en/API/MostPopularMovies/"+apiKey)
+    
+    func fetch() async throws -> [MovieData] {
+        guard let url = imdbApiUrl else {
+            throw ApiCallerError.invalidURL
+        }
         
+        let (data, _) = try await URLSession.shared.data(from: url) // the _ is the http response from URLSession
+        
+        let imdbResults = try JSONDecoder().decode(IMDBApiResult.self, from: data)
+        return imdbResults.items
     }
 }
