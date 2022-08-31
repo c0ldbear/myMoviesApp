@@ -19,11 +19,14 @@ class TableViewController: UITableViewController {
         
         Task {
             do {
-                let result = try await apiCaller.fetch()
-                for movie in result {
-                    movies.append(movie)
+                let result: IMDBApiResult? = try await apiCaller.fetch(for: apiCaller.imdbApiUrl)
+                if let result = result {
+                    for movie in result.items {
+                        movies.append(movie)
+                    }
+                    
+                    tableView.reloadData()
                 }
-                tableView.reloadData()
             } catch {
                 print(error)
             }
@@ -48,6 +51,7 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detailViewController = storyboard?.instantiateViewController(withIdentifier: "MovieDetail") as? MovieDetailViewController {
+            detailViewController.apiCaller = self.apiCaller
             detailViewController.movie = movies[indexPath.row]
             navigationController?.pushViewController(detailViewController, animated: true)
         }
