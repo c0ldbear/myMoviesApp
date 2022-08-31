@@ -4,6 +4,7 @@
 
 ## Ignore api key
 myMoviesApp/ApiCaller+ApiKey.swift
+myMoviesApp/IMDBApi/ApiCaller+ApiKey.swift
 
 ## User settings
 xcuserdata/

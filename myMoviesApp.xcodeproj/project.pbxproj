@@ -64,6 +64,7 @@
 		9FC34B9428BF5467008DE9FC /* myMoviesApp */ = {
 			isa = PBXGroup;
 			children = (
+				9FC34BBA28BF8092008DE9FC /* IMDBApi */,
 				9FC34B9528BF5467008DE9FC /* AppDelegate.swift */,
 				9FC34B9728BF5467008DE9FC /* SceneDelegate.swift */,
 				9FC34B9928BF5467008DE9FC /* TableViewController.swift */,
@@ -71,12 +72,19 @@
 				9FC34B9E28BF546A008DE9FC /* Assets.xcassets */,
 				9FC34BA028BF546A008DE9FC /* LaunchScreen.storyboard */,
 				9FC34BA328BF546A008DE9FC /* Info.plist */,
+			);
+			path = myMoviesApp;
+			sourceTree = "<group>";
+		};
+		9FC34BBA28BF8092008DE9FC /* IMDBApi */ = {
+			isa = PBXGroup;
+			children = (
 				9FC34BA928BF63DD008DE9FC /* ApiCaller.swift */,
 				9FC34BB828BF6CD9008DE9FC /* ApiCaller+ApiKey.swift */,
 				9FC34BB128BF665E008DE9FC /* MovieData.swift */,
 				9FC34BB528BF66E1008DE9FC /* IMDBApiResult.swift */,
 			);
-			path = myMoviesApp;
+			path = IMDBApi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
