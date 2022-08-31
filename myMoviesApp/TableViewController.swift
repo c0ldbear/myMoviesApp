@@ -13,7 +13,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         if movies.isEmpty {
             movies.append("Alien")
             movies.append("Aliens")
@@ -29,7 +29,7 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
-        cell.textLabel?.text = movies[indexPath.row]
+        cell.textLabel?.text = movies[indexPath.row] // use 'UIListContentConfiguration' instead
         return cell
     }
     
