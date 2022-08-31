@@ -29,7 +29,13 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
-        cell.textLabel?.text = movies[indexPath.row] // use 'UIListContentConfiguration' instead
+        var content = cell.defaultContentConfiguration()
+        content.image = UIImage(systemName: "film")
+        content.text = movies[indexPath.row]
+        content.imageProperties.tintColor = .tintColor
+        
+        cell.contentConfiguration = content
+        
         return cell
     }
     
