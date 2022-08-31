@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    private var movies  = [String]()
+    private var movies  = [MovieData]()
     private var apiCaller = ApiCaller()
     
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class TableViewController: UITableViewController {
             do {
                 let result = try await apiCaller.fetch()
                 for movie in result {
-                    movies.append(movie.title)
+                    movies.append(movie)
                 }
                 tableView.reloadData()
             } catch {
@@ -38,12 +38,19 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(systemName: "film")
-        content.text = movies[indexPath.row]
+        content.text = movies[indexPath.row].title
         content.imageProperties.tintColor = .tintColor
         
         cell.contentConfiguration = content
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let detailViewController = storyboard?.instantiateViewController(withIdentifier: "MovieDetail") as? MovieDetailViewController {
+            detailViewController.movie = movies[indexPath.row]
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
     
 }
