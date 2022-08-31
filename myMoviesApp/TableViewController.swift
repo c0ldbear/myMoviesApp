@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    private var movies  = [String]()
+    private var movies  = [MovieData]()
     private var apiCaller = ApiCaller()
     
     override func viewDidLoad() {
@@ -19,11 +19,14 @@ class TableViewController: UITableViewController {
         
         Task {
             do {
-                let result = try await apiCaller.fetch()
-                for movie in result {
-                    movies.append(movie.title)
+                let result: IMDBApiResult? = try await apiCaller.fetch(for: apiCaller.imdbApiUrl)
+                if let result = result {
+                    for movie in result.items {
+                        movies.append(movie)
+                    }
+                    
+                    tableView.reloadData()
                 }
-                tableView.reloadData()
             } catch {
                 print(error)
             }
@@ -38,12 +41,20 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(systemName: "film")
-        content.text = movies[indexPath.row]
+        content.text = movies[indexPath.row].title
         content.imageProperties.tintColor = .tintColor
         
         cell.contentConfiguration = content
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let detailViewController = storyboard?.instantiateViewController(withIdentifier: "MovieDetail") as? MovieDetailViewController {
+            detailViewController.apiCaller = self.apiCaller
+            detailViewController.movie = movies[indexPath.row]
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
     
 }
