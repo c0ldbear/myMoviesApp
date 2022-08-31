@@ -10,19 +10,24 @@ import UIKit
 class TableViewController: UITableViewController {
 
     private var movies  = [String]()
+    private var apiCaller = ApiCaller()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if movies.isEmpty {
-            movies.append("Alien")
-            movies.append("Aliens")
-            movies.append("Predator")
-        }
-        
         title = "Movies"
         
-        tableView.reloadData()
+        Task {
+            do {
+                let result = try await apiCaller.fetch()
+                for movie in result {
+                    movies.append(movie.title)
+                }
+                tableView.reloadData()
+            } catch {
+                print(error)
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

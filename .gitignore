@@ -2,6 +2,10 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## Ignore api key
+myMoviesApp/ApiCaller+ApiKey.swift
+myMoviesApp/IMDBApi/ApiCaller+ApiKey.swift
+
 ## User settings
 xcuserdata/
 
